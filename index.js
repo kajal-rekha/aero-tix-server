@@ -2,41 +2,33 @@ require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
+const userRoutes = require("./routes/userRoutes");
 
-// express app
 const app = express();
 
-// port
 const port = process.env.PORT || 5000;
 
-
-// middlewares
 app.use(cors({ credentials: true }));
 app.use(express.json());
 app.use((req, res, next) => {
-  console.log(req.path, req.method);
-  next();
+    console.log(req.path, req.method);
+    next();
 });
 
-
-
-// test api
 app.get("/", (req, res) => {
-  res.status(200).json({ message: "Welcome to the aero-tix server" });
+    res.status(200).json({ message: "Welcome to the aero-tix server" });
 });
 
+app.use("/api/users", userRoutes);
 
-
-// mongodb
 mongoose.set("strictQuery", false);
-
 mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => {
-    app.listen(port, () => {
-      console.log(`connected to mongodb and listening on port ${port}`);
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+        app.listen(port, () => {
+            console.log(`connected to mongodb and listening on port ${port}`);
+        });
+    })
+    .catch((err) => {
+        console.log(err.message);
     });
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });

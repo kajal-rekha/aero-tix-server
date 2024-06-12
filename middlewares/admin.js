@@ -1,9 +1,8 @@
-const isAdmin = async (req, res, next) => {
-    if (req.user?.role === "admin") {
-        next();
-    } else {
-        req.status(403).json({ error: "Unauthorized access" });
+const isAdmin = (req, res, next) => {
+    if (req.user.role !== "admin") {
+        return res.status(403).json({ error: "Access denied, admin only" });
     }
+    next();
 };
 
-export default { isAdmin };
+module.exports = { isAdmin };
