@@ -31,8 +31,8 @@ const getBookings = async (req, res) => {
 // cancel booking
 const cancelBooking = async (req, res) => {
     try {
-        const { userId } = req.body;
-        const booking = await Booking.findById(userId);
+        const { bookingId } = req.params;
+        const booking = await Booking.findById(bookingId);
         if (!booking) {
             return res.status(404).json({ error: "Booking not found" });
         }

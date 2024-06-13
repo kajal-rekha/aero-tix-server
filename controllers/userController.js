@@ -2,8 +2,6 @@ const { createToken } = require("../helpers/helper");
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
-
-
 // Create User
 const createUser = async (req, res) => {
     try {

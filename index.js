@@ -3,6 +3,9 @@ const cors = require("cors");
 const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
+const flighRoutes = require("./routes/flightRoutes")
+const bookingRoutes = require("./routes/bookingRoutes");
+
 
 const app = express();
 
@@ -20,6 +23,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes);
+app.use("/api/flights", flighRoutes)
+app.use("/api/bookings", bookingRoutes)
 
 mongoose.set("strictQuery", false);
 mongoose

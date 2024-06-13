@@ -26,7 +26,7 @@ const createFlight = async (req, res) => {
         });
         res.status(200).json(flight);
     } catch (error) {
-        res.status(400).json({ error: error.messages });
+        res.status(400).json({ error: error.message });
     }
 };
 
@@ -36,11 +36,11 @@ const getAllFlights = async (req, res) => {
         const flights = await Flight.find({});
         res.status(200).json(flights);
     } catch (error) {
-        res.status(400).json({ error: error.messages });
+        res.status(400).json({ error: error.message });
     }
 };
 
-// get a flights
+// get a flight
 const getFlight = async (req, res) => {
     try {
         const { userId } = req.params;
@@ -52,7 +52,7 @@ const getFlight = async (req, res) => {
 
         res.status(200).json(flight);
     } catch (error) {
-        res.status(400).json({ error: error.messages });
+        res.status(400).json({ error: error.message });
     }
 };
 
