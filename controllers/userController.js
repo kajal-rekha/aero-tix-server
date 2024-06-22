@@ -37,39 +37,13 @@ const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
 
-        console.log("Login attempt:", { email, password });
-
-        if (!email || !password) {
-            console.log("Email and password are required");
-            return res
-                .status(400)
-                .json({ error: "Email and password are required" });
-        }
-
-        const user = await User.findOne({ email });
-
-        console.log("User found:", user);
-
-        if (!user) {
-            console.log("User not found");
-            return res.status(400).json({ error: "User not found" });
-        }
-
-        const match = await bcrypt.compare(password, user.password);
-
-        console.log("Password comparison result:", match);
-
-        if (!match) {
-            console.log("Incorrect password");
-            return res.status(400).json({ error: "Incorrect password" });
-        }
+        const user = await User.login(email, password);
 
         const token = createToken(user._id);
 
         res.status(200).json({ user, token });
     } catch (error) {
-        console.error("Login error:", error);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(400).json({ error: error.message });
     }
 };
 

@@ -46,11 +46,6 @@ UserSchema.statics.signup = async function (username, email, password) {
         );
     }
 
-    const existingUser = await this.findOne({ email });
-    if (existingUser) {
-        throw new Error("Email already in use");
-    }
-
     const salt = await bcrypt.genSalt(10);
     const hashPass = await bcrypt.hash(password, salt);
 
@@ -83,8 +78,8 @@ UserSchema.statics.login = async function (email, password) {
 
     if (!match) {
         throw new Error("Incorrect email or password");
-        console.log(`Password mismatch for user: ${user.email}`);
     }
+    console.log(`Password mismatch for user: ${user.email}`);
 
     console.log(`Password match for user: ${user.email}`);
 
@@ -92,6 +87,3 @@ UserSchema.statics.login = async function (email, password) {
 };
 
 module.exports = mongoose.model("User", UserSchema);
-
-
-
