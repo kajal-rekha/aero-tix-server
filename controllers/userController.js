@@ -15,24 +15,6 @@ const createUser = async (req, res) => {
     }
 };
 
-// Login User
-// const loginUser = async (req, res) => {
-//     try {
-//         const { email, password } = req.body;
-
-//         if (!user) {
-//             return res
-//                 .status(400)
-//                 .json({ error: "Incorrect email or password" });
-//         }
-//         const token = createToken(user._id);
-//         res.status(200).json({ user, token });
-//     } catch (error) {
-//         console.log(error.message);
-//         res.status(400).json({ error: error.message });
-//     }
-// };
-
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
