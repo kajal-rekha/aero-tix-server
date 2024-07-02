@@ -12,8 +12,8 @@ const { isAuthenticated } = require("../middlewares/auth");
 const router = express.Router();
 
 router.post("/", isAuthenticated, isAdmin, createFlight);
-router.get("/", isAuthenticated, getAllFlights);
-router.get("/:userId", isAuthenticated, getFlight);
+router.get("/",  getAllFlights);
+router.get("/:userId",  getFlight);
 router.put("/:userId", isAuthenticated, isAdmin, updateFlight);
 router.delete("/:userId", isAuthenticated, isAdmin, deleteFlight);
 
