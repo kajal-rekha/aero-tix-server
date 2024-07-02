@@ -32,6 +32,10 @@ const FlightSchema = new Schema(
             type: Number,
             required: true
         },
+        image: {
+            type: String,
+            required: true
+        },
         seats: {
             type: Number,
             required: true

@@ -11,6 +11,7 @@ const createFlight = async (req, res) => {
             departure_time,
             arrival_time,
             price,
+            image,
             seats
         } = req.body;
 
@@ -22,6 +23,7 @@ const createFlight = async (req, res) => {
             departure_time,
             arrival_time,
             price,
+            image,
             seats
         });
         res.status(200).json(flight);
