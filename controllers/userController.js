@@ -5,9 +5,9 @@ const bcrypt = require("bcrypt");
 // Create User
 const createUser = async (req, res) => {
     try {
-        const { username, email, password } = req.body;
+        const { username, email, password, image } = req.body;
 
-        const user = await User.signup(username, email, password);
+        const user = await User.signup(username, email, password,image);
         const token = createToken(user._id);
         res.status(200).json({ user, token });
     } catch (error) {
@@ -57,10 +57,10 @@ const getAnUser = async (req, res) => {
 const updateUser = async (req, res) => {
     try {
         const { userId } = req.params;
-        const { username, email, password } = req.body;
+        const { username, email, password,image } = req.body;
         const updateUser = await User.findByIdAndUpdate(
             userId,
-            { username, email, password },
+            { username, email, password,image },
             { new: true }
         );
         if (!updateUser) {

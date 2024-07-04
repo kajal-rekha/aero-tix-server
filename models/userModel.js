@@ -20,6 +20,10 @@ const UserSchema = new Schema(
             type: String,
             required: true
         },
+        image: {
+            type: String,
+            required: true
+        },
         role: {
             type: String,
             enum: ["user", "admin"],
@@ -31,8 +35,8 @@ const UserSchema = new Schema(
 );
 
 // signup method
-UserSchema.statics.signup = async function (username, email, password) {
-    if (!username || !email || !password) {
+UserSchema.statics.signup = async function (username, email, password, image) {
+    if (!username || !email || !password || !image) {
         throw new Error("All fields must be filled");
     }
 
@@ -52,7 +56,8 @@ UserSchema.statics.signup = async function (username, email, password) {
     const user = await this.create({
         username,
         email,
-        password: hashPass
+        password: hashPass,
+        image
     });
 
     return user;
