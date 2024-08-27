@@ -31,7 +31,7 @@ To run this project locally, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/aero-tix.git
+    git clone https://github.com/kajal-rekha/aero-tix.git
     cd aero-tix
     ```
 
@@ -43,7 +43,7 @@ To run this project locally, follow these steps:
 3. **Set up environment variables:**
    - Create a `.env` file in the root directory and add the following variables:
      ```plaintext
-     PORT=3000
+     PORT=5000
      MONGODB_URI=your_mongodb_connection_string
      JWT_SECRET=your_jwt_secret_key
      ```
