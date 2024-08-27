@@ -1,4 +1,4 @@
-# Aero-Tix: An Online Air Ticket Booking App
+# Aero-Tix : An Online Air Ticket Booking App
 
 ## Project Description
 
@@ -20,10 +20,10 @@
   
 ## Tools and Technologies
 
-- **Node.js:** Server-side JavaScript runtime environment.
-- **Express.js:** Web framework for building RESTful APIs.
-- **JSON Web Token (JWT):** For secure authentication and authorization.
-- **MongoDB:** NoSQL database for storing and managing data.
+- **Node.js:** 
+- **Express.js:** 
+- **JSON Web Token (JWT):** 
+- **MongoDB:** 
 
 ## Installation
 
