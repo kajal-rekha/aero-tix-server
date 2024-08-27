@@ -2,7 +2,7 @@
 
 ## Project Description
 
-**Aero-Tix** is an online air ticket booking application. This project provides the essential functionalities required for managing flight bookings, user authentication, and ticket management. It serves as the backbone for an online air ticket booking system, enabling smooth operations and secure transactions.
+**Aero-Tix** is a modern online air ticket booking application. It is designed to handle all essential operations such as user authentication, flight scheduling, and ticket booking with a focus on security and performance. Leveraging Node.js and Express.js for a fast and responsive API, Aero-Tix ensures seamless communication between the frontend and the database. MongoDB is utilized for flexible and efficient data storage, while JSON Web Token (JWT) provides secure user sessions and access control. This project delivers a reliable backend system that supports the core functions needed for an efficient air ticket booking service.
 
 ## Project Features
 
