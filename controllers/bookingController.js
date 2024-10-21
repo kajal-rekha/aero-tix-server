@@ -2,19 +2,27 @@ const Booking = require("../models/BookingModel");
 
 // create booking
 const createBooking = async (req, res) => {
-    try {
-        const { flightId, seat_number } = req.body;
+    const { flightId, seat_number, user } = req.body; 
 
-        const booking = await Booking.create({
-            user: req.user._id,
+    if (!user || !flightId || !seat_number) {
+        return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    try {
+        const booking = new Booking({
+            user, 
             flight: flightId,
             seat_number
         });
-        res.status(200).json(booking);
+
+        await booking.save();
+        res.status(201).json(booking);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 };
+
+
 
 // get bookings
 const getBookings = async (req, res) => {
