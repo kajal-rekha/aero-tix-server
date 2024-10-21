@@ -8,7 +8,7 @@ const { isAuthenticated } = require("../middlewares/auth");
 
 const router = express.Router();
 
-router.post("/", isAuthenticated, createBooking);
+router.post("/", createBooking);
 router.get("/", isAuthenticated, getBookings);
 router.patch("/:bookingId/cancel", isAuthenticated, cancelBooking);
 
